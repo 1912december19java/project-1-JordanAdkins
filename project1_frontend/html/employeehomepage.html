@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="All your employee reimbursement needs are meet here."
+    />
+    <meta name="author" content="Jordan Adkins" />
+
+    <title>Employee Home Page</title>
+
+    <!--CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container-fluid" id="navbar-main">
+        <a class="navbar-brand" href="/html/employeehomepage.html"
+          >Employee Reimbursement Portal</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a
+                class="nav-link employee-unique animated nav-anime"
+                href="/html/employeehomepage.html"
+                >EMPLOYEENAMEHERE
+                <span class="sr-only">Toggle navigation</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link animated nav-anime" href="/html/request.html"
+                >Request</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link animated nav-anime" href="/html/pending.html"
+                >Pending</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link animated nav-anime" href="/html/resolved.html"
+                >Resolved</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Jumbotron-->
+    <div class="jumbotron">
+      <h1 class="jumbotrontext employee-unique">Welcome, EMPLOYEENAMEHERE</h1>
+      <p class="jumbotrontext">
+        This is your dashboard, here you can view or update your personal
+        information
+      </p>
+    </div>
+
+    <!-- Page Content -->
+    <div class="row" id="page-content">
+      <div class="container-fluid">
+        <div class="container bootstrap snippet">
+          <div class="panel-body inf-content">
+            <div class="row">
+              <div class="col-md-4">
+                <img
+                  alt="Employee Picture"
+                  style="width:600px;"
+                  title="Profile Picture"
+                  class="img-circle img-thumbnail isTooltip"
+                  src="/content/defaultuser.svg"
+                />
+                <ul title="Ratings" class="list-inline ratings text-center">
+                  <li>
+                    <i class="material-icons" id="reviewstar1">star</i>
+                    <i class="material-icons" id="reviewstar2">star</i>
+                    <i class="material-icons" id="reviewstar3">star</i>
+                    <i class="material-icons" id="reviewstar4">star_half</i>
+                    <i class="material-icons" id="reviewstar5">star_border</i>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-8">
+                <strong>Information</strong>
+                <i class="material-icons" id="editicon">edit</i><br />
+                <div class="table-responsive">
+                  <table
+                    class="table table-condensed table-responsive table-user-information"
+                  >
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">bookmark</i>
+                            </span>
+                            ID
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          123456789
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">person</i>
+                            </span>
+                            Name
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          Jordan Adkins
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">group</i>
+                            </span>
+                            Team
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          Unpaid Interns
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">work</i>
+                            </span>
+                            Role
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          Code Monkey
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">email</i>
+                            </span>
+                            Email
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          PleseDontEmailMe@email.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">house</i>
+                            </span>
+                            Address
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          367 totally real road, TownCity, State, 12345
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">smartphone</i>
+                            </span>
+                            Phone
+                          </strong>
+                        </td>
+                        <td class="text-userinfo">
+                          +1(606)-253-0987
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer starts here-->
+    <footer class="footer">
+      <span class="container-fluid" id="footer-container"><>
+      <p>©2020 Jordan's Imaginary Company, All Rights Reserved</p>
+      </span>
+    </footer>
+
+    <!--Script starts here-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
