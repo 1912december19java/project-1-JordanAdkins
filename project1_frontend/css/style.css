@@ -17,6 +17,7 @@ html,body
 {
     width: 100%;
     margin: 0px;
+    margin-bottom: 25px;
     padding: 0px;
     overflow-x: hidden; 
 }
@@ -26,11 +27,11 @@ strong{
 }
 .material-icons{
   transform: translateY(4px);
-  color: #3ac3fb
+  color: #3ac3fb;
 }
 .footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   width: 110%;
   height: 5%;
   line-height: 50px; /* Vertically center the text there */
@@ -93,13 +94,23 @@ strong{
 .card-text-muted{
   background-color: peachpuff;
 }
+.card-preapproval-question{
+  text-transform: capitalize;
+}
 .card-button{
   float: right;
   margin-left: 15px;
 }
 .download-icon{
   float: left;
-  background-color: #012249;
+  background-color: #1e2225;
+}
+.receipt-upload-label{
+  color:white;
+}
+#receipt-upload{
+  background-color: white;
+  border-radius: 5px;
 }
 
 /*Animation styling*/
