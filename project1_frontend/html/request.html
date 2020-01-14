@@ -82,17 +82,11 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="card">
-                  <img class="card-img-top img-fluid" src="/content/receipts/receipttarget.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">EMPLOYEE NAME</h5>
-                    <p class="card-text card-date">Date of Charge: 1/13/2020</p>
-                    <p class="card-text card-preapproval-question">Pre-Approval? Yes</p>
-                    <p class="card-text card-preapproval-amount">Reimbursement Amount: $2.99</p>
-                    <p class="card-text card-text-body">$2.99 requested for oreo cookies used to feed the new batch.</p>
-                    <a href="#" class="btn btn-primary card-button">Approve</a>
-                    <a href="#" class="btn btn-primary card-button">Deny</a>
-                    <i class="material-icons download-icon">save</i>
-                  </div>
+                  <img
+                    class="card-img-top img-fluid"
+                    src="/content/receipts/receipttarget.jpg"
+                    alt="Card image cap"
+                  />
                 </div>
               </div>
               <div class="col-lg-8">
@@ -108,13 +102,39 @@
                         <td>
                           <strong>
                             <span>
-                              <i class="material-icons">date_range</i>
+                              <i class="material-icons">receipt</i>
                             </span>
-                            <label for="request-date">Date of this charge</label>
+                            <label for="receipt-upload"
+                              >Proof of purchase</label
+                            >
                           </strong>
                         </td>
                         <td>
-                          <input type="date" class="form-control" id="request-date">
+                          <input
+                            type="file"
+                            class="form-check"
+                            id="receipt-upload"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <strong>
+                            <span>
+                              <i class="material-icons">assignment_turned_in</i>
+                            </span>
+                            <label for="pre-approval"
+                              >Was this charge Pre-Approved?</label
+                            >
+                          </strong>
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="pre-approval"
+                          />
                         </td>
                       </tr>
 
@@ -124,40 +144,38 @@
                             <span>
                               <i class="material-icons">attach_money</i>
                             </span>
-                            <label for="request-amount">Reimbursement amount</label>
+                            <label for="request-amount"
+                              >Reimbursement amount</label
+                            >
                           </strong>
                         </td>
                         <td>
-                          <input type="number" class="form-control" id="request-amount">
-                        </td>  
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <strong>
-                            <span>
-                              <i class="material-icons">assignment_turned_in</i>
-                            </span>
-                            <label for="pre-approval">Was this charge Pre-Approved?</label>
-                          </strong>
-                        </td>
-                        <td>
-                          <input type="text" class="form-control" id="pre-approval">
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="request-amount"
+                          />
                         </td>
                       </tr>
                       <tr>
                         <td>
                           <strong>
                             <span>
-                              <i class="material-icons">receipt</i>
+                              <i class="material-icons">date_range</i>
                             </span>
-                            <label for="receipt-upload">Proof of purchase</label>
+                            <label for="request-date"
+                              >Date of this charge</label
+                            >
                           </strong>
                         </td>
                         <td>
-                          <input type="file" class="form-check" id="receipt-upload">
+                          <input
+                            type="date"
+                            class="form-control"
+                            id="request-date"
+                          />
                         </td>
-                     
+                      </tr>
                     </tbody>
                   </table>
                 </div>
