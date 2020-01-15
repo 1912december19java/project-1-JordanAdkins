@@ -44,7 +44,7 @@ strong{
   background-color: #343a40;
 }
 .jumbotron {
-  background-image: url(/content/bannerbackground.png);
+  background-image: url(/project1_frontend/content/bannerbackground.png);
   background-size: cover;
   color: #012249;
   display: block;
@@ -112,7 +112,15 @@ strong{
   background-color: white;
   border-radius: 5px;
 }
-
+/*Login Page Styling*/
+.login-setup{
+  margin-top: 100px;
+}
+/*Employee List CSS*/
+.card-employee-level{
+  text-align: center;
+  color: #0484bb;
+}
 /*Animation styling*/
 
 @keyframes bounce {

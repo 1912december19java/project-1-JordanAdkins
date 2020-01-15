@@ -12,20 +12,20 @@
     <title>Employee Home Page</title>
 
     <!--CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/project1_frontend/css/bootstrap.min.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/project1_frontend/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark static-top">
       <div class="container-fluid" id="navbar-main">
-        <a class="navbar-brand" href="/html/employeehomepage.html"
-          >Employee Reimbursement Portal</a
+        <a class="navbar-brand" href="/project1_frontend/html/employeehomepage.html"
+          >Reimbursement Portal</a
         >
         <button
           class="navbar-toggler"
@@ -40,31 +40,54 @@
             <li class="nav-item">
               <a
                 class="nav-link employee-unique animated nav-anime"
-                href="/html/employeehomepage.html"
+                href="/project1_frontend/html/employeehomepage.html"
                 >EMPLOYEENAMEHERE
                 <span class="sr-only">Toggle navigation</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/html/request.html"
+              <a class="nav-link animated nav-anime" href="/project1_frontend/html/request.html"
                 >Request</a
               >
             </li>
-            <li class="nav-item active">
-              <a class="nav-link animated nav-anime" href="/html/pending.html"
+            <li class="nav-item">
+              <a class="nav-link animated nav-anime" href="/project1_frontend/html/pending.html"
                 >Pending</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/html/resolved.html"
+              <a class="nav-link animated nav-anime" href="/project1_frontend/html/resolved.html"
                 >Resolved</a
               >
             </li>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/employeelist.html"
+              >Employees</a
+            >
+          </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/teamrequest.html"
+            >Team Requests</a
+          >
+        </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allrequest.html"
+          >All Requests</a
+        >
+      </li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allresolved.html"
+        >All Resolved</a
+      >
+    </li>
           </ul>
         </div>
       </div>
     </nav>
-
     <!-- Jumbotron-->
     <div class="jumbotron">
       <h1 class="jumbotrontext employee-unique">Welcome, EMPLOYEENAMEHERE</h1>
@@ -78,7 +101,18 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/content/defaultuser.svg" alt="Employee">
+          <img class="card-img-top img-fluid" src="/project1_frontend/content/defaultuser.svg" alt="Employee">
+          <div class="card-body">
+            <h5 class="card-title">Jordan Adkins</h5>
+            <p class="card-text card-team">Team: Programming</p>
+            <p class="card-text card-employee-level">Employee</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="/project1_frontend/content/defaultuser.svg" alt="Employee">
           <div class="card-body">
             <h5 class="card-title">EMPLOYEE NAME</h5>
           </div>
@@ -87,7 +121,7 @@
       
       <div class="col-lg-3">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/content/defaultuser.svg" alt="Employee">
+          <img class="card-img-top img-fluid" src="/project1_frontend/content/defaultuser.svg" alt="Employee">
           <div class="card-body">
             <h5 class="card-title">EMPLOYEE NAME</h5>
           </div>
@@ -96,16 +130,7 @@
       
       <div class="col-lg-3">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/content/defaultuser.svg" alt="Employee">
-          <div class="card-body">
-            <h5 class="card-title">EMPLOYEE NAME</h5>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-lg-3">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/content/defaultuser.svg" alt="Employee">
+          <img class="card-img-top img-fluid" src="/project1_frontend/content/defaultuser.svg" alt="Employee">
           <div class="card-body">
             <h5 class="card-title">EMPLOYEE NAME</h5>
           </div>
@@ -133,6 +158,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/main.js"></script>
+    <script src="/project1_frontend/js/main.js"></script>
   </body>
 </html>
