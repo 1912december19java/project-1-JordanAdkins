@@ -26,11 +26,8 @@ public class FrontController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("Hello World");
+    System.out.println("DoGet Reached");
     System.out.println("URI" + req.getRequestURI());
-    TestingModel test = new TestingModel("hello","World");
-    
-    resp.getWriter().write(om.writeValueAsString(test));
     
   }
   
@@ -39,7 +36,9 @@ public class FrontController extends HttpServlet {
       throws ServletException, IOException {
    System.out.println("Post received");
    TestingModel test = om.readValue(req.getReader(), TestingModel.class);
-   System.out.println(test.toString());
+   System.out.println(test);
+   
+   resp.getWriter().write(om.writeValueAsString(test));
   }
 
 }

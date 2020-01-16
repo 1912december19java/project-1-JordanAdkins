@@ -10,12 +10,30 @@ public class TestingModel {
   }
   
   public TestingModel(String name, String Password){
-    super();
+	  this.name = name;
+	  this.password = Password;
   }
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
+
+@Override
+public String toString() {
+	return "TestingModel [name=" + name + ", password=" + password + "]";
+}
   
-  @Override
-  public String toString() {
-    String newString = (name + " " + password);
-    return newString;
-  }
+  
 }
