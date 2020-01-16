@@ -2,24 +2,24 @@ package com.revature.reimbursement.model;
 
 public class TestingModel {
   
-  private String name;
+  private String employeeId;
   private String password;
   
   public TestingModel(){
     super();
   }
   
-  public TestingModel(String name, String Password){
-	  this.name = name;
+  public TestingModel(String employeeId, String Password){
+	  this.employeeId = employeeId;
 	  this.password = Password;
   }
 
-public String getName() {
-	return name;
+public String getemployeeId() {
+	return employeeId;
 }
 
-public void setName(String name) {
-	this.name = name;
+public void setemployeeId(String employeeId) {
+	this.employeeId = employeeId;
 }
 
 public String getPassword() {
@@ -32,7 +32,7 @@ public void setPassword(String password) {
 
 @Override
 public String toString() {
-	return "TestingModel [name=" + name + ", password=" + password + "]";
+	return "TestingModel [employeeId=" + employeeId + ", password=" + password + "]";
 }
   
   
