@@ -1,12 +1,12 @@
-"use strict"
+// "use strict"
 
-let x = document.cookie;
+// let x = document.cookie;
 
-if(x == "username=John Doe"){
-    console.log("cookie already exists")
-}else{
-    document.cookie = "username=John Doe";
+// if(x == "username=John Doe"){
+//     console.log("cookie already exists")
+// }else{
+//     document.cookie = "username=John Doe";
 
-console.log(x);
-}
+// console.log(x);
+// }
 
