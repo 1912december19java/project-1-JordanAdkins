@@ -26,6 +26,11 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
     location = "C:/uploads")
 public class TEMPSERVLET extends HttpServlet{
 
+  /**
+   * 
+   */
+  private static final long serialVersionUID = -2076166153962586583L;
+
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {

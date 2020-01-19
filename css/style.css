@@ -44,7 +44,7 @@ strong{
   background-color: #343a40;
 }
 .jumbotron {
-  background-image: url(/project1_frontend/content/bannerbackground.png);
+  background-image: url(/content/bannerbackground.png);
   background-size: cover;
   color: #012249;
   display: block;

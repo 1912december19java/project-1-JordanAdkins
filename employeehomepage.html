@@ -12,21 +12,23 @@
     <title>Employee Home Page</title>
 
     <!--CSS -->
-    <link href="/project1_frontend/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link href="/project1_frontend/css/style.css" rel="stylesheet" />
-  
-    <!--Pre-load JS-->
-    <script src="/project1_frontend/js/checkforlogin.js"></script>
+    <link href="/css/style.css" rel="stylesheet" />
+
+     <!--Pre-load JS-->
+     <script src="/js/checkforlogin.js"></script>
+
+    
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark static-top">
       <div class="container-fluid" id="navbar-main">
-        <a class="navbar-brand" href="/project1_frontend/html/employeehomepage.html"
+        <a class="navbar-brand" href="employeehomepage.html"
           >Reimbursement Portal</a
         >
         <button
@@ -42,47 +44,47 @@
             <li class="nav-item active">
               <a
                 class="nav-link employee-unique animated nav-anime"
-                href="/project1_frontend/html/employeehomepage.html"
+                href="employeehomepage.html" id="nav-name"
                 >EMPLOYEENAMEHERE
                 <span class="sr-only">Toggle navigation</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/request.html"
+              <a class="nav-link animated nav-anime" href="request.html"
                 >Request</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/pending.html"
+              <a class="nav-link animated nav-anime" href="pending.html"
                 >Pending</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/resolved.html"
+              <a class="nav-link animated nav-anime" href="resolved.html"
                 >Resolved</a
               >
             </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/employeelist.html"
+            <a class="nav-link animated nav-anime" href="managerpages/employeelist.html"
               >Employees</a
             >
           </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/teamrequest.html"
+          <a class="nav-link animated nav-anime" href="managerpages/teamrequest.html"
             >Team Requests</a
           >
         </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allrequest.html"
+        <a class="nav-link animated nav-anime" href="managerpages/allrequest.html"
           >All Requests</a
         >
       </li>
     </li>
     <li class="nav-item">
-      <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allresolved.html"
+      <a class="nav-link animated nav-anime" href="managerpages/allresolved.html"
         >All Resolved</a
       >
     </li>
@@ -93,7 +95,7 @@
 
     <!-- Jumbotron-->
     <div class="jumbotron">
-      <h1 class="jumbotrontext employee-unique">Welcome, EMPLOYEENAMEHERE</h1>
+      <h1 class="jumbotrontext" id="jumbo-name">Welcome, EMPLOYEENAMEHERE</h1>
       <p class="jumbotrontext">
         This is your dashboard, here you can view or update your personal
         information
@@ -112,15 +114,16 @@
                   style="width:600px;"
                   title="Profile Picture"
                   class="img-circle img-thumbnail isTooltip"
-                  src="/project1_frontend/content/defaultuser.svg"
+                  src=""
+                  id="profile-picture"
                 />
                 <ul title="Ratings" class="list-inline ratings text-center">
                   <li>
                     <i class="material-icons" id="reviewstar1">star</i>
                     <i class="material-icons" id="reviewstar2">star</i>
                     <i class="material-icons" id="reviewstar3">star</i>
-                    <i class="material-icons" id="reviewstar4">star_half</i>
-                    <i class="material-icons" id="reviewstar5">star_border</i>
+                    <i class="material-icons" id="reviewstar4">star</i>
+                    <i class="material-icons" id="reviewstar5">star</i>
                   </li>
                 </ul>
               </div>
@@ -141,8 +144,8 @@
                             ID
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          123456789
+                        <td class="text-userinfo" id="eid">
+                           
                         </td>
                       </tr>
                       <tr>
@@ -154,8 +157,8 @@
                             Name
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          Jordan Adkins
+                        <td class="text-userinfo" id="ename">
+                           
                         </td>
                       </tr>
                       
@@ -168,8 +171,8 @@
                             Team
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          Unpaid Interns
+                        <td class="text-userinfo" id="eteam">
+                           
                         </td>
                       </tr>
 
@@ -182,8 +185,8 @@
                             Role
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          Code Monkey
+                        <td class="text-userinfo" id="erole">
+                           
                         </td>
                       </tr>
                       <tr>
@@ -195,8 +198,8 @@
                             Email
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          PleseDontEmailMe@email.com
+                        <td class="text-userinfo" id="eemail">
+                           
                         </td>
                       </tr>
                       <tr>
@@ -208,8 +211,8 @@
                             Address
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          367 totally real road, TownCity, State, 12345
+                        <td class="text-userinfo" id="eaddress">
+                           
                         </td>
                       </tr>
                       <tr>
@@ -221,8 +224,8 @@
                             Phone
                           </strong>
                         </td>
-                        <td class="text-userinfo">
-                          +1(606)-253-0987
+                        <td class="text-userinfo" id="ephone">
+                           
                         </td>
                       </tr>
                     </tbody>
@@ -256,6 +259,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="/project1_frontend/js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/employeehomepage.js"></script>
   </body>
 </html>

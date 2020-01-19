@@ -12,21 +12,19 @@
     <title>Employee Home Page</title>
 
     <!--CSS -->
-    <link href="/project1_frontend/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link href="/project1_frontend/css/style.css" rel="stylesheet" />
- <!--Pre-load JS-->
- <script src="/project1_frontend/js/checkforlogin.js"></script>
+    <link href="/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark static-top">
       <div class="container-fluid" id="navbar-main">
-        <a class="navbar-brand" href="/project1_frontend/html/employeehomepage.html"
+        <a class="navbar-brand" href="/employeehomepage.html"
           >Reimbursement Portal</a
         >
         <button
@@ -42,47 +40,47 @@
             <li class="nav-item">
               <a
                 class="nav-link employee-unique animated nav-anime"
-                href="/project1_frontend/html/employeehomepage.html"
+                href="/employeehomepage.html"
                 >EMPLOYEENAMEHERE
                 <span class="sr-only">Toggle navigation</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/request.html"
+              <a class="nav-link animated nav-anime" href="/request.html"
                 >Request</a
               >
             </li>
-            <li class="nav-item active">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/pending.html"
+            <li class="nav-item">
+              <a class="nav-link animated nav-anime" href="/pending.html"
                 >Pending</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/project1_frontend/html/resolved.html"
+              <a class="nav-link animated nav-anime" href="/resolved.html"
                 >Resolved</a
               >
             </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/employeelist.html"
+            <a class="nav-link animated nav-anime" href="/managerpages/employeelist.html"
               >Employees</a
             >
           </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/teamrequest.html"
+          <a class="nav-link animated nav-anime" href="/managerpages/teamrequest.html"
             >Team Requests</a
           >
         </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allrequest.html"
+        <a class="nav-link animated nav-anime" href="/managerpages/allrequest.html"
           >All Requests</a
         >
       </li>
     </li>
-    <li class="nav-item">
-      <a class="nav-link animated nav-anime" href="/project1_frontend/html/managerpages/allresolved.html"
+    <li class="nav-item active">
+      <a class="nav-link animated nav-anime" href="/managerpages/allresolved.html"
         >All Resolved</a
       >
     </li>
@@ -104,10 +102,10 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/project1_frontend/content/receipts/receiptcvs.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="/content/receipts/receipttarget.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">EMPLOYEE NAME</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">$2.99 requested for oreo cookies used to feed the new batch.</p>
             <a href="#" class="btn btn-primary card-button">Approve</a>
             <a href="#" class="btn btn-primary card-button">Deny</a>
             <i class="material-icons download-icon">save</i>
@@ -117,22 +115,7 @@
       
       <div class="col-lg-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/project1_frontend/content/receipts/receipttarget.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">EMPLOYEE NAME</h5>
-            <p class="card-text card-date">Date of Charge: 1/13/2020</p>
-            <p class="card-text card-preapproval-question">Pre-Approval? Yes</p>
-            <p class="card-text card-preapproval-amount">Reimbursement Amount: $2.99</p>
-            <a href="#" class="btn btn-primary card-button">Approve</a>
-            <a href="#" class="btn btn-primary card-button">Deny</a>
-            <i class="material-icons download-icon">save</i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-lg-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/project1_frontend/content/receipts/receiptswiss.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="/content/receipts/receiptswiss.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -145,7 +128,7 @@
       
       <div class="col-lg-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="/project1_frontend/content/receipts/receiptswiss.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="/content/receipts/receiptswiss.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -177,6 +160,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="/project1_frontend/js/main.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

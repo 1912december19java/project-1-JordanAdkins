@@ -4,6 +4,14 @@ let submitButton = document.getElementById("login-submit");
 let employeeIdBox = document.getElementById("employee-login-id");
 let employeepasswordBox = document.getElementById("employee-login-password");
 let loginData = { id: "", password: "" };
+let comU = "";
+let loginCheck = document.cookie.indexOf('chk=');
+const successUrl = "employeehomepage.html"
+
+if(loginCheck !=-1){
+  window.location.href = successUrl;
+}
+
 
 submitButton.addEventListener("click", e => {
   if (checkForValidInput()) {
@@ -14,29 +22,27 @@ submitButton.addEventListener("click", e => {
 document.addEventListener("keypress", e => {
   if (e.key == "Enter") {
     if (checkForValidInput()) {
-      attemptlogin();
+      attemptlogin().then((data) => {
+        comU = data.id
+        let convint =Number(comU);
+        convint = (convint * 6363);
+        document.cookie = ("chk= " + convint + ";path= /");
+        window.location.href = successUrl;
+      }).catch((e) => {
+        console.log("Wrong info");
+      })
     }
   }
 });
 
 async function attemptlogin() {
-  fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/login", {
+  const response = await fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/login", {
     method: "POST",
-    accept: "*/*",
-    CORS: "*",
-    redirect: 'follow',
+    credintials: 'include',
     body: JSON.stringify(loginData)
-  }).then(response => {
-     window.location = (response.url);
-    });
+  });
+   return await response.json();
 }
-
-// async function attemptlogin() {
-//   let response = await fetch("http://localhost:8080/reimbursement/login", {
-//     method: "POST",
-//     body: JSON.stringify(loginData) });
-//     console.log(response);
-// }
 
 function checkForValidInput() {
   if (employeeIdBox.value.trim() != "") {
