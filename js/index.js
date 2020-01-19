@@ -15,7 +15,15 @@ if(loginCheck !=-1){
 
 submitButton.addEventListener("click", e => {
   if (checkForValidInput()) {
-    attemptlogin();
+    attemptlogin().then((data) => {
+      comU = data.id
+      let convint =Number(comU);
+      convint = (convint * 6363);
+      document.cookie = ("chk= " + convint + ";path= /");
+      window.location.href = successUrl;
+    }).catch((e) => {
+      console.log("Wrong info");
+    })
   }
 });
 

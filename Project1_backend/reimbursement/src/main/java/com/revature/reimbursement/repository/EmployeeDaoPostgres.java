@@ -38,9 +38,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("id is valid");
-        return rs.getInt(1);
+        int returnvalue = rs.getInt(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("id is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return 0;
       }
     } catch (SQLException e) {
@@ -66,9 +73,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("pass is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("pass is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -94,9 +108,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("name is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("name is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -122,9 +143,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("team is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
-        log.trace("tam is NOT valid");
+        log.trace("team is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -150,9 +178,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("role is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("role is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -178,9 +213,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("email is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("email is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -206,9 +248,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("address is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("address is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -234,9 +283,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("phone is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("phone is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {
@@ -262,9 +318,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("ismanager is valid");
-        return rs.getBoolean(1);
+        boolean returnvalue = rs.getBoolean(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("ismanager is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return false;
       }
     } catch (SQLException e) {
@@ -290,9 +353,16 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       rs = stmt.getResultSet();
       if (rs.next()) {
         log.trace("url is valid");
-        return rs.getString(1);
+        String returnvalue = rs.getString(1);
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
+        return returnvalue;
       } else {
         log.trace("url is NOT valid");
+        DbUtil.safeClose(rs);
+        DbUtil.safeClose(stmt);
+        DbUtil.safeClose(conn);
         return null;
       }
     } catch (SQLException e) {

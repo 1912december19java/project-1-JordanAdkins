@@ -18,7 +18,6 @@ var cookieValue = document.cookie.replace(
 let auth = { id: "" };
 auth.id = cookieValue;
 getPageData().then(data => {
-  console.log(data);
   setTimeout(function (){
     employeeModel.id = data.eId;
     employeeModel.name = data.ename;
@@ -48,12 +47,10 @@ getPageData().then(data => {
     } else{
       profilePic.src = "/content/defaultuser.svg"
     }
+    addScript ("/js/mvis.js");
   }, 1000);
 
 })
-// .catch((e) => {
-// console.log("UH OH! I MADE AN OOPSIE!!!");
-// });
 
 async function getPageData() {
   const response = await fetch(
@@ -67,3 +64,8 @@ async function getPageData() {
   return await response.json();
 }
 
+function addScript( src ) {
+  var s = document.createElement( 'script' );
+  s.setAttribute( 'src', src );
+  document.body.appendChild( s );
+}

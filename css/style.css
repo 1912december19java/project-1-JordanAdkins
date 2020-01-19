@@ -31,7 +31,7 @@ strong{
 }
 .footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   width: 110%;
   height: 5%;
   line-height: 50px; /* Vertically center the text there */
