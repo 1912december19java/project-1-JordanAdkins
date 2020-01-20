@@ -1,6 +1,7 @@
 package com.revature.reimbursement.repository;
 
 import java.util.List;
+import com.revature.reimbursement.model.EmployeeListModel;
 
 public interface EmployeeDao {
   
@@ -59,6 +60,6 @@ public interface EmployeeDao {
   /**
    * Creates a list of all employees
    */
-  public List<Integer> getAllEmployees();
+  public List<EmployeeListModel> getEmployeeList();
   
 }

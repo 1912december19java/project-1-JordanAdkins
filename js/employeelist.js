@@ -1,0 +1,56 @@
+"Use Strict";
+
+const startingRow = document.getElementById("row-start");
+
+getInfoForCards().then(data => {
+    for (let i = 0; i < Object.keys(data).length; i++) {
+        let convertedData = data[i];
+        buildCard(convertedData.name, convertedData.team, convertedData.role, convertedData.url);
+    }
+});
+
+async function getInfoForCards() {
+  const response = await fetch(
+    "http://localhost:8080/reimbursement/employeelist"
+  );
+  return await response.json();
+}
+
+// for(let i = 0; i < 16; i++){
+//     buildCard("Jordan Adkins", "Programming", "Code Monkey", null);
+// }
+//buildCard("Jordan Adkins", "Programming", "Code Monkey", null);
+
+function buildCard(name, team, role, url) {
+  let coldiv = document.createElement("div");
+  coldiv.className = "col-lg-3";
+  let carddiv = document.createElement("div");
+  carddiv.className = "card";
+  let img = document.createElement("img");
+  img.className = "card-img-top img-fluid";
+  if (url) {
+    img.src = url;
+  } else {
+    img.src = "/content/defaultuser.svg";
+  }
+  img.alt = "Employee Image";
+  let bodydiv = document.createElement("div");
+  bodydiv.className = "card-body";
+  let h5 = document.createElement("h5");
+  h5.className = "card-title";
+  h5.textContent = name;
+  let p1 = document.createElement("p");
+  p1.className = "card-text card-team";
+  p1.innerText = "Team: " + team;
+  let p2 = document.createElement("p");
+  p2.className = "card-text card-employee-level";
+  p2.innerText = role;
+
+  startingRow.appendChild(coldiv);
+  coldiv.appendChild(carddiv);
+  carddiv.appendChild(img);
+  carddiv.appendChild(bodydiv);
+  bodydiv.appendChild(h5);
+  bodydiv.appendChild(p1);
+  bodydiv.appendChild(p2);
+}

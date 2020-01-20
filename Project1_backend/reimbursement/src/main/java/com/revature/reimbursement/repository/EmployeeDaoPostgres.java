@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
+import com.revature.reimbursement.model.EmployeeListModel;
 
 public class EmployeeDaoPostgres implements EmployeeDao {
 
@@ -29,8 +31,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt = conn.prepareStatement("SELECT employee_id FROM employee_info WHERE employee_id = ?;");
       stmt.setInt(1, id);
@@ -54,7 +56,7 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       log.error("Failed to get from database");
       e.printStackTrace();
       return 0;
-    } 
+    }
   }
 
   @Override
@@ -63,8 +65,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_pass FROM employee_info WHERE employee_id = ?;");
@@ -89,7 +91,7 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       log.error("Failed to get from database");
       e.printStackTrace();
       return null;
-    } 
+    }
   }
 
   @Override
@@ -98,8 +100,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_name FROM employee_info WHERE employee_id = ?;");
@@ -124,7 +126,7 @@ public class EmployeeDaoPostgres implements EmployeeDao {
       log.error("Failed to get from database");
       e.printStackTrace();
       return null;
-    } 
+    }
   }
 
   @Override
@@ -133,8 +135,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_team FROM employee_info WHERE employee_id = ?;");
@@ -168,8 +170,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_role FROM employee_info WHERE employee_id = ?;");
@@ -203,8 +205,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_email FROM employee_info WHERE employee_id = ?;");
@@ -238,8 +240,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt = conn
           .prepareStatement("SELECT employee_address FROM employee_info WHERE employee_id = ?;");
@@ -273,8 +275,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt =
           conn.prepareStatement("SELECT employee_phone FROM employee_info WHERE employee_id = ?;");
@@ -308,8 +310,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt = conn
           .prepareStatement("SELECT employee_ismanager FROM employee_info WHERE employee_id = ?;");
@@ -343,8 +345,8 @@ public class EmployeeDaoPostgres implements EmployeeDao {
     ResultSet rs = null;
     PreparedStatement stmt = null;
     try {
-      conn = DriverManager.getConnection(System.getProperty("connstring"),
-          System.getProperty("username"), System.getProperty("password"));
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
       log.debug("Connected to Database");
       stmt = conn
           .prepareStatement("SELECT employee_image_url FROM employee_info WHERE employee_id = ?;");
@@ -374,11 +376,36 @@ public class EmployeeDaoPostgres implements EmployeeDao {
 
 
   @Override
-  public List<Integer> getAllEmployees() {
-    // TODO Auto-generated method stub
-    return null;
+  public List<EmployeeListModel> getEmployeeList() {
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement stmt = null;
+    List<EmployeeListModel> returnList = new ArrayList<EmployeeListModel>();
+    try {
+      conn = DriverManager.getConnection(System.getenv("connstring"),
+          System.getenv("username"), System.getenv("password"));
+      log.debug("Connected to Database");
+      stmt = conn.prepareStatement(
+          "SELECT employee_name, employee_team, employee_role, employee_image_url FROM employee_info;");
+      stmt.execute();
+      rs = stmt.getResultSet();
+      while (rs.next()) {
+        log.trace("Inserting new Employee");
+        EmployeeListModel employee = new EmployeeListModel(rs.getString(1), rs.getString(2),
+            rs.getString(3), rs.getString(4));
+        returnList.add(employee);
+        log.trace("Added: " + employee);
+      }
+      DbUtil.safeClose(rs);
+      DbUtil.safeClose(stmt);
+      DbUtil.safeClose(conn);
+      return returnList;
+    } catch (SQLException e) {
+      log.error("Failed to get from database");
+      e.printStackTrace();
+      return null;
+    }
   }
-
-
-
 }
+
+

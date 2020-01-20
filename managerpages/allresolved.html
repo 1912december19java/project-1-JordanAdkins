@@ -23,74 +23,73 @@
   </head>
 
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark static-top">
-      <div class="container-fluid" id="navbar-main">
-        <a class="navbar-brand" href="/employeehomepage.html"
-          >Reimbursement Portal</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target=".navbar-collapse"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a
-                class="nav-link employee-unique animated nav-anime"
-                href="/employeehomepage.html"
-                id="nav-name"
-                >EMPLOYEENAMEHERE
-                <span class="sr-only">Toggle navigation</span>
-              </a>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark static-top">
+          <div class="container-fluid" id="navbar-main">
+            <a class="navbar-brand" href="/employeehomepage.html"
+              >Reimbursement Portal</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a
+                    class="nav-link employee-unique animated nav-anime"
+                    href="/employeehomepage.html" id="nav-name"
+                    >
+                    <span class="sr-only">Toggle navigation</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link animated nav-anime" href="/request.html"
+                    >Request</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link animated nav-anime" href="/pending.html"
+                    >Pending</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link animated nav-anime" href="/resolved.html"
+                    >Resolved</a
+                  >
+                </li>
+              </li>
+              <li class="nav-item" id="mspec">
+                <a class="nav-link animated nav-anime" href="employeelist.html"
+                  >Employees</a
+                >
+              </li>
             </li>
-            <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/request.html"
-                >Request</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/pending.html"
-                >Pending</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link animated nav-anime" href="/resolved.html"
-                >Resolved</a
+            <li class="nav-item" id="mspec">
+              <a class="nav-link animated nav-anime" href="teamrequest.html"
+                >Team Requests</a
               >
             </li>
           </li>
-          <li class="nav-item">
-            <a class="nav-link animated nav-anime" href="/managerpages/employeelist.html"
-              >Employees</a
+          <li class="nav-item" id="mspec">
+            <a class="nav-link animated nav-anime" href="allrequest.html"
+              >All Requests</a
             >
           </li>
         </li>
-        <li class="nav-item">
-          <a class="nav-link animated nav-anime" href="/managerpages/teamrequest.html"
-            >Team Requests</a
+        <li class="nav-item" id="mspec">
+          <a class="nav-link animated nav-anime" href="allresolved.html"
+            >All Resolved</a
           >
         </li>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link animated nav-anime" href="/managerpages/allrequest.html"
-          >All Requests</a
-        >
-      </li>
-    </li>
-    <li class="nav-item active">
-      <a class="nav-link animated nav-anime" href="/managerpages/allresolved.html"
-        >All Resolved</a
-      >
-    </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
     <!-- Jumbotron-->
     <div class="jumbotron">
@@ -165,5 +164,6 @@
     ></script>
     <script src="/js/main.js"></script>
     <script src="/js/personize.js"></script>
+    <script src="/js/mvis.js" defer></script>
   </body>
 </html>

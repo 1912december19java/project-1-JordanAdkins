@@ -1,7 +1,7 @@
 package com.revature.reimbursement.servlets;
 
 import java.io.IOException;
-
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.reimbursement.model.AuthenticationModel;
+import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.model.LoginModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
@@ -37,6 +38,18 @@ public class FrontController extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     log.trace("doGet Reached");
+    String reqUri = req.getRequestURI();
+    String[] uriComponents = reqUri.split("/");
+    switch (uriComponents[(uriComponents.length - 1)]) {
+      case "employeelist":
+        log.debug("employeeList Reached");
+        List<EmployeeListModel> returnList = employeeManager.getAllEmployees();
+        resp.getWriter().write(om.writeValueAsString(returnList));
+        resp.getWriter().flush();
+        break;
+        default:
+          resp.sendError(404);
+    }
   }
 
   @Override
@@ -52,6 +65,7 @@ public class FrontController extends HttpServlet {
         if (loginManager.isValidLoginCombo(user.getId(), user.getPassword())) {
           user.setPassword("");
           resp.getWriter().write(om.writeValueAsString(user));
+          resp.getWriter().flush();
         } else {
           resp.getWriter().write("Incorrect Info");
           resp.getWriter().flush();

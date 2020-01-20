@@ -1,6 +1,8 @@
 package com.revature.reimbursement.services;
 
+import java.util.List;
 import org.apache.log4j.Logger;
+import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
 
@@ -28,6 +30,10 @@ public class EmployeeManager {
         employeeDao.checkForProfilePicUrl(id)
         );
     return returnModel;
+  }
+  
+  public List<EmployeeListModel> getAllEmployees(){
+    return employeeDao.getEmployeeList();
   }
 
 }

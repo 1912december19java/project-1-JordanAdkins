@@ -35,10 +35,10 @@ getPageData().then(data => {
     employeeEmail.innerText = employeeModel.email;
     employeeAddress.innerText = employeeModel.address;
     employeePhone.innerText = employeeModel.phone;
+    document.cookie = "name="+employeeModel.name;
     let firstName = employeeModel.name.replace(/ .*/,"");
     jumbotronName.innerText = firstName;
     navbarName.innerText = firstName;
-    document.cookie = "name="+firstName;
     if(employeeModel.ismanager){
       document.cookie = "bosu=t"
     }

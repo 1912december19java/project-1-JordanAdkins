@@ -1,12 +1,13 @@
 'use strict'
 
 let uname = getCookie("name");
+uname = uname.replace(/ .*/,"");
 
 let navname = document.getElementById("nav-name");
 let jumboname = document.getElementById("jumbo-name");
 
-navname.innerText = uname;
-jumboname.innerText = uname;
+navname.innerText = (uname);
+jumboname.innerText = (uname + ",");
 
 function getCookie(cname) {
     var name = cname + "=";
