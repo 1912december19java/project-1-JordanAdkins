@@ -38,7 +38,7 @@ getPageData().then(data => {
     document.cookie = "name="+employeeModel.name;
     document.cookie = "team="+employeeModel.team;
     let firstName = employeeModel.name.replace(/ .*/,"");
-    jumbotronName.innerText = firstName;
+    jumbotronName.innerText = (firstName + ",");
     navbarName.innerText = firstName;
     if(employeeModel.ismanager){
       document.cookie = "bosu=t"
