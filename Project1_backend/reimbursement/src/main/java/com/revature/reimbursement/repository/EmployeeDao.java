@@ -2,6 +2,7 @@ package com.revature.reimbursement.repository;
 
 import java.util.List;
 import com.revature.reimbursement.model.EmployeeListModel;
+import com.revature.reimbursement.model.TransactionModel;
 
 public interface EmployeeDao {
   
@@ -62,4 +63,8 @@ public interface EmployeeDao {
    */
   public List<EmployeeListModel> getEmployeeList();
   
+ /**
+  * Creates a list of all transactions 
+  */
+  public List<TransactionModel> getTransactions();
 }

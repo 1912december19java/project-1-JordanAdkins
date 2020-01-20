@@ -13,6 +13,7 @@ import com.revature.reimbursement.model.AuthenticationModel;
 import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.model.LoginModel;
+import com.revature.reimbursement.model.TransactionModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
 import com.revature.reimbursement.services.EmployeeManager;
 import com.revature.reimbursement.services.LoginManager;
@@ -43,8 +44,14 @@ public class FrontController extends HttpServlet {
     switch (uriComponents[(uriComponents.length - 1)]) {
       case "employeelist":
         log.debug("employeeList Reached");
-        List<EmployeeListModel> returnList = employeeManager.getAllEmployees();
-        resp.getWriter().write(om.writeValueAsString(returnList));
+        List<EmployeeListModel> returnEmployeeList = employeeManager.getAllEmployees();
+        resp.getWriter().write(om.writeValueAsString(returnEmployeeList));
+        resp.getWriter().flush();
+        break;
+      case "trans":
+        log.debug("transaction table reached");
+        List<TransactionModel> returnTransactionList = employeeManager.getAllTransactions();
+        resp.getWriter().write(om.writeValueAsString(returnTransactionList));
         resp.getWriter().flush();
         break;
         default:
@@ -77,8 +84,9 @@ public class FrontController extends HttpServlet {
         int currentUserId = (auth.getId() / 6363);
         EmployeeModel currentUser = employeeManager.buildEmployee(currentUserId);
         resp.getWriter().write(om.writeValueAsString(currentUser));
+        resp.getWriter().flush();
         break;
-      default: {
+      default: { 
         log.debug("Bad request returning 400");
         if (!resp.isCommitted()) {
           resp.sendError(400);

@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
+import com.revature.reimbursement.model.TransactionModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
 
 public class EmployeeManager {
@@ -14,6 +15,10 @@ public class EmployeeManager {
   
   public EmployeeManager(EmployeeDaoPostgres EmployeeDaoPostgres) {
     this.employeeDao = EmployeeDaoPostgres;
+  }
+  
+  public String getName(int id) {
+    return employeeDao.checkForName(id);
   }
   
   public EmployeeModel buildEmployee(int id){
@@ -34,6 +39,10 @@ public class EmployeeManager {
   
   public List<EmployeeListModel> getAllEmployees(){
     return employeeDao.getEmployeeList();
+  }
+  
+  public List<TransactionModel> getAllTransactions(){
+    return employeeDao.getTransactions();
   }
 
 }

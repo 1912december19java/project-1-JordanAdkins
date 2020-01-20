@@ -18,7 +18,7 @@ var cookieValue = document.cookie.replace(
 let auth = { id: "" };
 auth.id = cookieValue;
 getPageData().then(data => {
-  setTimeout(function (){
+  //setTimeout(function (){
     employeeModel.id = data.eId;
     employeeModel.name = data.ename;
     employeeModel.team = data.eteam;
@@ -48,7 +48,7 @@ getPageData().then(data => {
       profilePic.src = "/content/defaultuser.svg"
     }
     addScript ("/js/mvis.js");
-  }, 1000);
+  //}, 1000);
 
 })
 

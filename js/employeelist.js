@@ -11,15 +11,11 @@ getInfoForCards().then(data => {
 
 async function getInfoForCards() {
   const response = await fetch(
-    "http://localhost:8080/reimbursement/employeelist"
+    "http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/employeelist"
   );
   return await response.json();
 }
 
-// for(let i = 0; i < 16; i++){
-//     buildCard("Jordan Adkins", "Programming", "Code Monkey", null);
-// }
-//buildCard("Jordan Adkins", "Programming", "Code Monkey", null);
 
 function buildCard(name, team, role, url) {
   let coldiv = document.createElement("div");
