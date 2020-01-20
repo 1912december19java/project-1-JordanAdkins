@@ -38,6 +38,7 @@ strong{
   background-color: #606a75;
   text-align: center;
   color: white;
+  z-index: 100;
 }
 .nav-link {
   animation-duration: 0.6s;
@@ -112,6 +113,15 @@ strong{
 #receipt-upload{
   background-color: white;
   border-radius: 5px;
+}
+/*Resolved Styling*/
+.card-approval-manager{
+  color: black;
+  background-color: rgb(8, 204, 8);
+}
+.card-denied{
+  color: black;
+  background-color: rgb(221, 1, 1);
 }
 /*Login Page Styling*/
 .login-setup{

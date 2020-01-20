@@ -5,7 +5,7 @@ const startingRow = document.getElementById("row-start");
 getInfoForCards().then(data => {
     for (let i = 0; i < Object.keys(data).length; i++) {
         let convertedData = data[i];
-        buildCard(convertedData.name, convertedData.team, convertedData.role, convertedData.url);
+        buildCard(convertedData.name, convertedData.team, convertedData.role, convertedData.profileUrl);
     }
 });
 
@@ -24,7 +24,7 @@ function buildCard(name, team, role, url) {
   carddiv.className = "card";
   let img = document.createElement("img");
   img.className = "card-img-top img-fluid";
-  if (url) {
+  if (url != null) {
     img.src = url;
   } else {
     img.src = "/content/defaultuser.svg";

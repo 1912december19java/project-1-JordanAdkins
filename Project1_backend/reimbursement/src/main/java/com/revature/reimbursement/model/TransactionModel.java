@@ -12,13 +12,14 @@ public class TransactionModel {
   private String rurl;
   private String approvedBy;
   private String ename;
+  private String team;
   
   public TransactionModel() {
     super();
   }
 
   public TransactionModel(int reqid, int empid, String date, String amount, boolean preapproval,
-      boolean pending, boolean approved, String rurl, String approvedBy, String ename) {
+      boolean pending, boolean approved, String rurl, String approvedBy, String ename, String team) {
     super();
     this.reqid = reqid;
     this.empid = empid;
@@ -30,6 +31,7 @@ public class TransactionModel {
     this.rurl = rurl;
     this.setApprovedBy(approvedBy);
     this.ename = ename;
+    this.team = team;
   }
 
   public int getReqid() {
@@ -117,6 +119,14 @@ public class TransactionModel {
 
   public void setEname(String ename) {
     this.ename = ename;
+  }
+
+  public String getTeam() {
+    return team;
+  }
+
+  public void setTeam(String team) {
+    this.team = team;
   }
   
   

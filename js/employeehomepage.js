@@ -36,6 +36,7 @@ getPageData().then(data => {
     employeeAddress.innerText = employeeModel.address;
     employeePhone.innerText = employeeModel.phone;
     document.cookie = "name="+employeeModel.name;
+    document.cookie = "team="+employeeModel.team;
     let firstName = employeeModel.name.replace(/ .*/,"");
     jumbotronName.innerText = firstName;
     navbarName.innerText = firstName;

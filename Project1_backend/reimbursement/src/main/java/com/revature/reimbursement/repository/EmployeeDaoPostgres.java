@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.apache.log4j.Logger;
 import com.revature.reimbursement.model.EmployeeListModel;
@@ -424,13 +425,14 @@ public class EmployeeDaoPostgres implements EmployeeDao {
         log.trace("Inserting new request");
         TransactionModel transaction = new TransactionModel(rs.getInt(1), rs.getInt(2),
             rs.getString(3), rs.getString(4), rs.getBoolean(5), rs.getBoolean(6), rs.getBoolean(7),
-            rs.getString(8), rs.getString(9), checkForName(rs.getInt(2)));
+            rs.getString(8), rs.getString(9), checkForName(rs.getInt(2)), checkForTeam(rs.getInt(2)));
         returnList.add(transaction);
         log.trace("Added: " + transaction);
       }
       DbUtil.safeClose(rs);
       DbUtil.safeClose(stmt);
       DbUtil.safeClose(conn);
+      Collections.shuffle(returnList);
       return returnList;
     } catch (SQLException e) {
       log.error("Failed to get from database");
