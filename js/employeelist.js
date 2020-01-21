@@ -19,7 +19,7 @@ async function getInfoForCards() {
 
 function buildCard(name, team, role, url) {
   let coldiv = document.createElement("div");
-  coldiv.className = "col-lg-3";
+  coldiv.className = "col-lg-";
   let carddiv = document.createElement("div");
   carddiv.className = "card";
   let img = document.createElement("img");

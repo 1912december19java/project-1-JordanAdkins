@@ -3,22 +3,29 @@ package com.revature.reimbursement.servlets;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.reimbursement.controllers.EmployeeManager;
+import com.revature.reimbursement.controllers.LoginManager;
 import com.revature.reimbursement.model.AuthenticationModel;
 import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.model.LoginModel;
 import com.revature.reimbursement.model.TransactionModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
-import com.revature.reimbursement.services.EmployeeManager;
-import com.revature.reimbursement.services.LoginManager;
+import com.revature.reimbursement.services.StorePicture;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/*"})
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
+maxFileSize = 1024 * 1024 * 10, // 10 MB
+maxRequestSize = 1024 * 1024 * 15, // 15 MB
+location = "C:/uploads")
 public class FrontController extends HttpServlet {
 
   private static final long serialVersionUID = 3173399440215144549L;
@@ -85,6 +92,11 @@ public class FrontController extends HttpServlet {
         EmployeeModel currentUser = employeeManager.buildEmployee(currentUserId);
         resp.getWriter().write(om.writeValueAsString(currentUser));
         resp.getWriter().flush();
+        break;
+      case "upload":
+        log.debug("reached POST upload");
+        Part filePart = req.getPart("upload");
+        System.out.println(StorePicture.uploadToS3(filePart));
         break;
       default: { 
         log.debug("Bad request returning 400");

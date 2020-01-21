@@ -109,15 +109,11 @@
                 <div class="card">
                   <img
                     class="card-img-top img-fluid"
-                    src="/content/receipts/receipttarget.jpg"
+                    id="receipt-upload-image"
+                    src="/content/receipt.png"
                     alt="Card image cap"
                   />
-                <div class="card-body">
-                  <h5 class="card-title">EMPLOYEE NAME</h5>
-                  <p class="card-text card-date">Date of Charge: 1/13/2020</p>
-                  <p class="card-text card-preapproval-question">Pre-Approval? Yes</p>
-                  <p class="card-text card-preapproval-amount">Reimbursement Amount: $2.99</p>
-                </div>
+               
                 </div>
               </div>
               <div class="col-lg-8">
@@ -143,8 +139,11 @@
                         <td>
                           <input
                             type="file"
+                            accept="images/x-png,image/gif/image/jpeg"
+                            onchange="loadFile(event)"
                             class="form-check"
                             id="receipt-upload"
+                            name="upload"
                           />
                         </td>
                       </tr>
@@ -207,6 +206,12 @@
                           />
                         </td>
                       </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <a class="btn btn-primary card-button right-align">Submit</a>      
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -240,6 +245,7 @@
     ></script>
     <script src="/js/main.js"></script>
     <script src="/js/personize.js"></script>
+    <script src="/js/request.js"></script>
     <script src="/js/mvis.js" defer></script>
   </body>
 </html>

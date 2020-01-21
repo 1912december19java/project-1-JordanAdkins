@@ -1,28 +1,26 @@
 "use strict";
 
 const startingRow = document.getElementById("starting-row");
-let thisE = getCookie("name");
+let thisName = getCookie("name");
 
 getInfoForCards().then(data => {
   for (let i = 0; i < Object.keys(data).length; i++) {
     let convertedData = data[i];
-    if (convertedData.pending) {
-      buildCard(
-        convertedData.reqid,
-        convertedData.ename,
-        convertedData.date,
-        convertedData.preapproval,
-        convertedData.amount,
-        convertedData.rurl
-      );
+    if(convertedData.pending && convertedData.ename == thisName ){
+    buildCard(
+      convertedData.reqid,
+      convertedData.ename,
+      convertedData.date,
+      convertedData.preapproval,
+      convertedData.amount,
+      convertedData.rurl,
+    );
     }
   }
 });
 
 async function getInfoForCards() {
-  const response = await fetch(
-    "http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/trans"
-  );
+  const response = await fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/trans");
   return await response.json();
 }
 
@@ -56,18 +54,10 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   let p3 = document.createElement("p");
   p3.className = "card-text card-preapproval-amount";
   p3.innerText = "Reimbursement Amount: $" + amount;
-  if (thisE != name) {
-    var a = document.createElement("a");
-    a.href = "#";
-    a.className = "btn btn-primary card-button";
-    a.innerText = "Approve";
-    var a2 = document.createElement("a");
-    a2.href = "#";
-    a2.className = "btn btn-primary card-button";
-    a2.innerText = "Deny";
-  }
+  let a = document.createElement("a");
+  a.href = "#";
   let i = document.createElement("i");
-  i.className = "material-icons download-icon";
+  i.className = "material-icons download-icon right-align";
   i.innerText = "save";
 
   startingRow.appendChild(coldiv);
@@ -78,25 +68,22 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   bodydiv.appendChild(p1);
   bodydiv.appendChild(p2);
   bodydiv.appendChild(p3);
-  if (thisE != name) {
-    bodydiv.appendChild(a);
-    bodydiv.appendChild(a2);
-  }
   bodydiv.appendChild(i);
 }
 
+
 function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+    return "";
   }
-  return "";
-}

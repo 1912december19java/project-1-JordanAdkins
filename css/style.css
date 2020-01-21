@@ -57,6 +57,10 @@ strong{
 .jumbotrontext {
     background-color: transparent;
 }
+.big-center-text{
+  color: #d8eff5;
+  text-align: center;
+}
 
 /*Employee Dashboard CSS*/
 .inf-content{
@@ -86,6 +90,7 @@ strong{
 .card-title{
   background-color: #1e2225;
   color: #3ac3fb;
+  text-align: center;
 }
 .card-text{
   background-color: #eef8fb;
@@ -134,6 +139,9 @@ strong{
 .card-employee-level{
   text-align: center;
   color: #0484bb;
+}
+.right-align{
+  float: right;
 }
 /*Animation styling*/
 

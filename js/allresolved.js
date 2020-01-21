@@ -28,7 +28,7 @@ async function getInfoForCards() {
 
 function buildCard(reqid, name, date, preapproval, amount, url, approvedBy) {
   let coldiv = document.createElement("div");
-  coldiv.className = "col-lg-3";
+  coldiv.className = "col-lg-";
   let carddiv = document.createElement("div");
   carddiv.className = "card";
   carddiv.id = reqid;
@@ -65,7 +65,7 @@ function buildCard(reqid, name, date, preapproval, amount, url, approvedBy) {
     p4.className = "card-text card-denied";
     p4.innerText = "Denied";
   }
-  i.className = "material-icons download-icon";
+  i.className = "material-icons download-icon right-align";
   i.innerText = "save";
 
   startingRow.appendChild(coldiv);
