@@ -137,14 +137,14 @@
                           </strong>
                         </td>
                         <td>
+                          
                           <input
                             type="file"
                             accept="images/x-png,image/gif/image/jpeg"
                             onchange="loadFile(event)"
-                            class="form-check"
+                            class="form-check reqform"
                             id="receipt-upload"
-                            name="upload"
-                          />
+                            name="upload">
                         </td>
                       </tr>
 
@@ -162,7 +162,7 @@
                         <td>
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control reqform"
                             id="pre-approval"
                           />
                         </td>
@@ -182,7 +182,7 @@
                         <td>
                           <input
                             type="number"
-                            class="form-control"
+                            class="form-control reqform"
                             id="request-amount"
                           />
                         </td>
@@ -201,15 +201,17 @@
                         <td>
                           <input
                             type="date"
-                            class="form-control"
+                            class="form-control reqform"
                             id="request-date"
                           />
                         </td>
                       </tr>
                       <tr>
-                        <td></td>
                         <td>
-                          <a class="btn btn-primary card-button right-align">Submit</a>      
+                          <strong id=submission-message></strong>
+                        </td>
+                        <td>
+                          <a id = "sub-button" class="btn btn-primary card-button right-align">Submit</a>      
                         </td>
                       </tr>
                     </tbody>

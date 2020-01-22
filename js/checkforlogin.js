@@ -1,6 +1,6 @@
 
 let loginCheck = document.cookie.indexOf('chk=');
-const loginUrl = "index.html"
+const loginUrl = "/index.html"
 
 
 if(loginCheck == -1){

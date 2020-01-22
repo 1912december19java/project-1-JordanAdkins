@@ -79,3 +79,21 @@ function buildCard(reqid, name, date, preapproval, amount, url, approvedBy) {
   bodydiv.appendChild(p4);
   bodydiv.appendChild(i);
 }
+
+function Search() {
+  let input, filter, sr, card, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  sr = document.getElementById("starting-row");
+  card = sr.getElementsByClassName("card");
+  
+  for (i = 0; i < card.length; i++) {
+    a = card[i].getElementsByTagName("h5")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      card[i].style.display = "";
+    } else {
+      card[i].style.display = "none";
+    }
+  }
+}

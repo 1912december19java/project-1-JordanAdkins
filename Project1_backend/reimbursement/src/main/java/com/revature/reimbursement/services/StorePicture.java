@@ -16,9 +16,9 @@ public class StorePicture {
 
   public static String uploadToS3(Part filePart) throws IOException {
     String fileName = filePart.getSubmittedFileName();
-    
-    if (fileName.endsWith(".jpg") || fileName.endsWith(".png")) {
 
+    if (fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith(".JPG")
+        || fileName.endsWith(".PNG")) {
       InputStream fileInputStream = filePart.getInputStream();
       String accessKeyId = (System.getenv("aws_key_id"));
       String secretAccessKey = (System.getenv("aws_access_key"));

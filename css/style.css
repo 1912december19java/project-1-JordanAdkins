@@ -22,6 +22,14 @@ html,body
     overflow-x: hidden; 
 }
 
+.green{
+  color:green;
+}
+
+.red{
+  color:red;
+}
+
 strong{
   color:#eef8fb
 }
@@ -78,6 +86,10 @@ strong{
   margin-left: 30px;
   margin-top: 10px;
   max-width: 300px;
+  transition: background-color .4s;
+}
+.card:hover {
+  background-color: gold;
 }
 .card-img{
   max-width: 180px;
@@ -143,7 +155,19 @@ strong{
 .right-align{
   float: right;
 }
+.up-gap{
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+
+
 /*Animation styling*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
 
 @keyframes bounce {
   from,
@@ -151,38 +175,59 @@ strong{
   53%,
   80%,
   to {
-    -webkit-animation-timing-function: cubic-bezier(0, 0.61, 0.355, );
     animation-timing-function: cubic-bezier(0, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
   40%,
   43% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -8px, 0);
     transform: translate3d(0, -8px, 0);
   }
 
   70% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0.05, 0.855, 0.06);
     animation-timing-function: cubic-bezier(0, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -8px, 0);
     transform: translate3d(0, -8px, 0);
   }
 
   90% {
-    -webkit-transform: translate3d(0, -4px, 0);
     transform: translate3d(0, -4px, 0);
   }
 }
 
 .bounce {
-  -webkit-animation-name: bounce;
   animation-name: bounce;
-  -webkit-transform-origin: center bottom;
   transform-origin: center bottom;
+}
+
+@keyframes tinderLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.tinderLeft {
+  animation-name: tinderLeft;
+}
+
+@keyframes tinderRight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.tinderRight {
+  animation-name: tinderRight;
 }
 
 

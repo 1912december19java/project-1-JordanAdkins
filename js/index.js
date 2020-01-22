@@ -22,7 +22,7 @@ submitButton.addEventListener("click", e => {
       document.cookie = ("chk= " + convint + ";path= /");
       window.location.href = successUrl;
     }).catch((e) => {
-      console.log("Wrong info");
+      document.getElementById("feedback").innerText = "Incorrect Creditials!";
     })
   }
 });
@@ -37,7 +37,7 @@ document.addEventListener("keypress", e => {
         document.cookie = ("chk= " + convint + ";path= /");
         window.location.href = successUrl;
       }).catch((e) => {
-        console.log("Wrong info");
+        document.getElementById("feedback").innerText = "Incorrect Creditials!";
       })
     }
   }

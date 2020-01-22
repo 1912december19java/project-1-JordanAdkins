@@ -67,4 +67,19 @@ public interface EmployeeDao {
   * Creates a list of all transactions 
   */
   public List<TransactionModel> getTransactions();
+
+  /**
+   * uploads a new request
+   */
+  public boolean saveNewRequest(int eid, String date, String amount, boolean preapproval, String url);
+  
+  /**
+   * Approve request
+   */
+  public boolean approveRequest(String name, int reqId);
+  
+  /**
+   * Deny request
+   */
+  public boolean denyRequest(int reqId);
 }

@@ -59,6 +59,7 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   let i = document.createElement("i");
   i.className = "material-icons download-icon right-align";
   i.innerText = "save";
+  i.href = url;
 
   startingRow.appendChild(coldiv);
   coldiv.appendChild(carddiv);

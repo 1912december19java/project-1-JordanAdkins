@@ -13,19 +13,23 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.reimbursement.controllers.EmployeeManager;
 import com.revature.reimbursement.controllers.LoginManager;
+import com.revature.reimbursement.controllers.RequestManager;
+import com.revature.reimbursement.model.ApprovalModel;
 import com.revature.reimbursement.model.AuthenticationModel;
 import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.model.LoginModel;
 import com.revature.reimbursement.model.TransactionModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
+import com.revature.reimbursement.services.BetterParseBoolean;
+import com.revature.reimbursement.services.InputStreamTranslator;
 import com.revature.reimbursement.services.StorePicture;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/*"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
 maxFileSize = 1024 * 1024 * 10, // 10 MB
 maxRequestSize = 1024 * 1024 * 15, // 15 MB
-location = "C:/uploads")
+location = "/")
 public class FrontController extends HttpServlet {
 
   private static final long serialVersionUID = 3173399440215144549L;
@@ -95,9 +99,47 @@ public class FrontController extends HttpServlet {
         break;
       case "upload":
         log.debug("reached POST upload");
-        Part filePart = req.getPart("upload");
-        System.out.println(StorePicture.uploadToS3(filePart));
+        Part image = req.getPart("upload");
+        Part preapproval = req.getPart("pre-approved");
+        Part amount = req.getPart("amount");
+        Part date = req.getPart("date");
+        //Part name = req.getPart("name");
+        Part eid = req.getPart("eid");
+        log.debug("successfully broke into parts");
+        String preapprovalString = InputStreamTranslator.inputStreamToString(preapproval.getInputStream());
+        String amountString = InputStreamTranslator.inputStreamToString(amount.getInputStream());
+        String dateString = InputStreamTranslator.inputStreamToString(date.getInputStream());
+        String eidString = InputStreamTranslator.inputStreamToString(eid.getInputStream());
+        try {
+          boolean preapprovalBool = BetterParseBoolean.doIt(preapprovalString);
+          int eidInt = Integer.parseInt(eidString);
+          eidInt = (eidInt / 6363);
+          String uploadUrl = StorePicture.uploadToS3(image);
+          if(RequestManager.insertNewRequest(eidInt, dateString, amountString, preapprovalBool, uploadUrl)) {
+            System.out.println("Stored Successfully");
+          }
+          else {
+            System.out.println("Failed to Store");
+          }
+        }catch(Exception e) {
+          System.out.println("Parsing Error");
+        }       
         break;
+      case "approve":
+        System.out.println("reached approval");
+        ApprovalModel approve = om.readValue(req.getReader(), ApprovalModel.class);
+        if(RequestManager.approveRequest(approve.getName(), approve.getReq())) {
+          System.out.println("request Successful!");
+        };
+        break;
+      case "deny":
+        System.out.println("Reached Deny");
+        ApprovalModel deny = om.readValue(req.getReader(), ApprovalModel.class);
+        if(RequestManager.denyRequest(deny.getReq())) {
+          System.out.println("Deny Successful!");
+        };
+        break;
+        
       default: { 
         log.debug("Bad request returning 400");
         if (!resp.isCommitted()) {

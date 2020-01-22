@@ -33,6 +33,12 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   let carddiv = document.createElement("div");
   carddiv.className = "card";
   carddiv.id = reqid;
+  carddiv.addEventListener("mouseover", e => {
+    carddiv.classList.add("glowing");
+  });
+  carddiv.addEventListener("mouseleave", e => {
+    carddiv.classList.remove("glowing");
+  });
   let img = document.createElement("img");
   img.className = "card-img-top img-fluid";
   if (url) {
@@ -59,11 +65,11 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   p3.innerText = "Reimbursement Amount: $" + amount;
   if (thisE != name) {
     var a = document.createElement("a");
-    a.href = "#";
+    a.id = "a" + reqid;
     a.className = "btn btn-primary card-button";
     a.innerText = "Approve";
     var a2 = document.createElement("a");
-    a2.href = "#";
+    a2.id = "d" + reqid;
     a2.className = "btn btn-primary card-button";
     a2.innerText = "Deny";
   }
@@ -82,6 +88,22 @@ function buildCard(reqid, name, date, preapproval, amount, url) {
   if (thisE != name) {
     bodydiv.appendChild(a);
     bodydiv.appendChild(a2);
+    a.addEventListener("click", e => {
+      document.getElementById(reqid).classList.add("animated");
+      document.getElementById(reqid).classList.add("tinderRight");
+      approveRequest(reqid);
+      setTimeout(function(){
+        document.getElementById(reqid).remove();
+    }, 600);
+    });
+    a2.addEventListener("click", e => {
+      document.getElementById(reqid).classList.add("animated");
+      document.getElementById(reqid).classList.add("tinderLeft");
+      denyRequest(reqid);
+      setTimeout(function(){
+      document.getElementById(reqid).remove();
+    }, 600);
+    });
   }
   bodydiv.appendChild(i);
 }
@@ -100,4 +122,32 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+
+
+async function approveRequest(reqid){
+
+  let manager = {name : "", req : ""};
+  manager.name = thisE;
+  manager.req = reqid; 
+
+  const response = await fetch("http://localhost:8080/reimbursement/approve", {
+    method: "POST",
+    credintials: 'include',
+    body: JSON.stringify(manager)
+  });
+}
+
+async function denyRequest(reqid){
+
+  let manager = {name : "", req : ""};
+  manager.name = thisE;
+  manager.req = reqid; 
+
+  const response = await fetch("http://localhost:8080/reimbursement/deny", {
+    method: "POST",
+    credintials: 'include',
+    body: JSON.stringify(manager)
+  });
 }
