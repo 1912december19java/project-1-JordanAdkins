@@ -160,6 +160,29 @@ strong{
   margin-left: 30px;
 }
 
+.modal-header{
+  background-color: #e0f5fe;
+}
+.modal-title{
+  background-color: #e0f5fe;
+}
+.modal-body{
+  background-color: white;
+}
+.modal-footer{
+  background-color: #e0f5fe;
+}
+.form-group{
+  background-color: white;
+  margin-bottom: 0px;
+}
+.col-form-label{
+  background-color: white;
+}
+.modal-content{
+  background-color: white;
+}
+
 
 
 /*Animation styling*/

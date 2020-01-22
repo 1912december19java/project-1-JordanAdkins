@@ -4,6 +4,7 @@ const startingRow = document.getElementById("starting-row");
 let thisName = getCookie("name");
 
 getInfoForCards().then(data => {
+  let cardcounter = 0;
   for (let i = 0; i < Object.keys(data).length; i++) {
     let convertedData = data[i];
     if(convertedData.pending && convertedData.ename == thisName ){
@@ -15,8 +16,15 @@ getInfoForCards().then(data => {
       convertedData.amount,
       convertedData.rurl,
     );
+    cardcounter++
     }
   }
+  if(cardcounter === 0){
+    let h1 = document.createElement("h1");
+    h1.className = "col-xl-12 big-center-text";
+    h1.innerText = "You have no pending requests"
+    startingRow.appendChild(h1);
+}
 });
 
 async function getInfoForCards() {

@@ -18,7 +18,6 @@ var cookieValue = document.cookie.replace(
 let auth = { id: "" };
 auth.id = cookieValue;
 getPageData().then(data => {
-  //setTimeout(function (){
     employeeModel.id = data.eId;
     employeeModel.name = data.ename;
     employeeModel.team = data.eteam;
@@ -49,7 +48,6 @@ getPageData().then(data => {
       profilePic.src = "/content/defaultuser.svg"
     }
     addScript ("/js/mvis.js");
-  //}, 1000);
 
 })
 
@@ -69,4 +67,32 @@ function addScript( src ) {
   var s = document.createElement( 'script' );
   s.setAttribute( 'src', src );
   document.body.appendChild( s );
+}
+
+document.getElementById("update-info").addEventListener('click',(e)=>{
+  updateInformation();
+  setTimeout(function (){
+    location.reload();
+  },2000)
+})
+
+async function updateInformation(){
+  let newName = document.getElementById("modal-name");
+  let newEmail = document.getElementById("modal-email");
+  let newAddress = document.getElementById("modal-address");
+  let newPhone = document.getElementById("modal-phone");
+
+  let newPerson = {name: "", email: "", address: "", phone: "", id: ""};
+  newPerson.name = newName.value;
+  newPerson.email = newEmail.value;
+  newPerson.phone = newPhone.value;
+  newPerson.address = newAddress.value;
+  newPerson.id = auth.id;
+
+  const response = await fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/update", {
+    method: "POST",
+    body: JSON.stringify(newPerson)
+  });
+  setTimeout(function (){
+  },3000)
 }

@@ -14,12 +14,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.reimbursement.controllers.EmployeeManager;
 import com.revature.reimbursement.controllers.LoginManager;
 import com.revature.reimbursement.controllers.RequestManager;
+import com.revature.reimbursement.controllers.UpdateManager;
 import com.revature.reimbursement.model.ApprovalModel;
 import com.revature.reimbursement.model.AuthenticationModel;
 import com.revature.reimbursement.model.EmployeeListModel;
 import com.revature.reimbursement.model.EmployeeModel;
 import com.revature.reimbursement.model.LoginModel;
 import com.revature.reimbursement.model.TransactionModel;
+import com.revature.reimbursement.model.UpdateModel;
 import com.revature.reimbursement.repository.EmployeeDaoPostgres;
 import com.revature.reimbursement.services.BetterParseBoolean;
 import com.revature.reimbursement.services.InputStreamTranslator;
@@ -138,6 +140,17 @@ public class FrontController extends HttpServlet {
         if(RequestManager.denyRequest(deny.getReq())) {
           System.out.println("Deny Successful!");
         };
+        break;
+        
+      case "update":
+        System.out.println("Reached update");
+        UpdateModel update = om.readValue(req.getReader(), UpdateModel.class);
+        if(UpdateManager.updateUser(update.getName(), update.getEmail(), update.getAddress(), 
+            update.getPhone(), (update.getId() / 6363))) {
+          System.out.println("successfully updated information!");
+        }else {
+          System.out.println("Failed to Update information");
+        }
         break;
         
       default: { 

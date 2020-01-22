@@ -82,4 +82,9 @@ public interface EmployeeDao {
    * Deny request
    */
   public boolean denyRequest(int reqId);
+  
+  /**
+   * Updates information 
+   */
+  public boolean updateInformation(String name, String email, String address, String phone, int eid);
 }

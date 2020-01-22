@@ -132,7 +132,7 @@ async function approveRequest(reqid){
   manager.name = thisE;
   manager.req = reqid; 
 
-  const response = await fetch("http://localhost:8080/reimbursement/approve", {
+  const response = await fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/approve", {
     method: "POST",
     credintials: 'include',
     body: JSON.stringify(manager)
@@ -145,7 +145,7 @@ async function denyRequest(reqid){
   manager.name = thisE;
   manager.req = reqid; 
 
-  const response = await fetch("http://localhost:8080/reimbursement/deny", {
+  const response = await fetch("http://Reimbursementportal-env.mm26zshb3w.us-east-1.elasticbeanstalk.com/deny", {
     method: "POST",
     credintials: 'include',
     body: JSON.stringify(manager)
