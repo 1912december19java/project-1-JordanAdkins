@@ -1,0 +1,98 @@
+CREATE TABLE employee_info (
+employee_id serial PRIMARY KEY,
+employee_pass TEXT NOT NULL,
+employee_name TEXT NOT NULL,
+employee_team TEXT NOT NULL,
+employee_role TEXT NOT NULL,
+employee_email TEXT NOT NULL,
+employee_address TEXT NOT NULL,
+employee_phone TEXT NOT NULL,
+employee_ismanager BOOL NOT NULL,
+employee_image_url TEXT
+);
+
+CREATE TABLE request_table (
+request_id serial PRIMARY KEY,
+employee_id integer REFERENCES employee_info(employee_id),
+request_date TEXT ,
+request_amount TEXT ,
+request_preapproval BOOL ,
+request_pending BOOL ,
+request_approved BOOL,
+request_image_url TEXT 
+);
+
+INSERT INTO employee_info (employee_id,employee_pass,employee_name,employee_team,employee_role,employee_email,employee_address,
+employee_phone,employee_ismanager, employee_image_url)
+VALUES 
+(100100,	'password0',	'Bianca White',	'Executives',	'CEO',	'E100@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	TRUE, 'https://jicstorage.s3.amazonaws.com/profileimages/Bianca.jpg'),
+(100101, 'password1', 'Jordan Adkins', 'Software', 'Code Monkey', 'E101@JIC.com', '19593 Imaginary Road','555-555-5555', FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Jordan.jpg'),
+(100102,	'password2', 'Max Gisbert',	'Executives',	'GM',	'E102@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	TRUE, null),
+(100103,	'password3',	'Hassan Elhabouz',	'Software',	'Software Developer',	'E103@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, null),
+(100104,	'password4',	'Aisha Glasby',	'Software',	'Senior Architect',	'E104@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	TRUE, null),
+(100105,	'password5',	'Alexander Mao',	'HR',	'Master of the House',	'E105@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Alex.jpg'),
+(100106,	'password6',	'Aike Smith',	'Software',	'Quality Assurance',	'E106@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, null),
+(100107,	'password7',	'Dexter Valley',	'HR',	'Chef',	'E107@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Dexter.jpg'),
+(100108,	'password8',	'Daniel Rubbo',	'Software', 	'Trainer',	'E108@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Dannyboi.jfif'),
+(100109,	'password9',	'Allen Guo',	'Software', 	'Algorithm Designer',	'E109@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, null),
+(100110,	'password10',	'Dillon Phillips',	'HR',	'Choreographer',	'E110@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Dillon.jpg'),
+(100111,	'password11',	'Joe Domingo',	'HR',	'Musician', 	'E111@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, null),
+(100112,	'password12',	'Jesse Yulle',	'Executives',	'CFO',	'E112@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Jessie.jpg'),
+(100113,	'password13',	'Micheal Jones',	'Executives',	'CMO',	'E113@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, 'https://jicstorage.s3.amazonaws.com/profileimages/Garrat.jpg'),
+(100114,	'password14',	'Corey Herrington',	'HR',	'Chief HR Officer',	'E114@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	TRUE, 'https://jicstorage.s3.amazonaws.com/profileimages/Corey.jpg'),
+(100115,	'password15',	'Surendra Bijukchhe',	'Executives',	'CTO',	'E115@JIC.com',	'19593 Imaginary Road',	'555-555-5555',	FALSE, null)
+;
+
+INSERT INTO request_table (employee_id, request_date, request_amount, request_preapproval, request_image_url, request_pending, request_approved)
+VALUES 
+(100100,	'1/1/2020',	'21.45',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(1).jpg',	FALSE,	TRUE),
+(100100,	'1/3/2020',	'93.62',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(2).jpg',	FALSE,	FALSE),
+(100100,	'1/5/2020',	'229.50',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(3).jpg',	TRUE,	NULL),
+(100101,	'1/7/2020',	'24.20',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(4).jpg',	TRUE,	NULL),
+(100101,	'1/9/2020',	'23.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(5).jpg',	TRUE,	NULL),
+(100101,	'1/11/2020',	'343.35',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(6).jpg',	FALSE,	TRUE),
+(100102,	'1/13/2020',	'17.04',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(7).jpg',	TRUE,	NULL),
+(100103,	'1/15/2020',	'43.97',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(8).jpg',	FALSE,	TRUE),
+(100104,	'1/17/2020',	'58.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(9).jpg',	TRUE,	NULL),
+(100105,	'1/19/2020',	'53.80',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(10).jpg',	TRUE,	NULL),
+(100106,	'1/21/2020',	'21.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(11).jpg',FALSE,	FALSE),
+(100107,	'1/23/2020',	'93.62',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(12).jpg',	FALSE,	TRUE),
+(100108,	'1/25/2020',	'229.50',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(13).jpg',	TRUE,	NULL),
+(100109,	'1/27/2020',	'24.20',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(14).jpg',	FALSE,	FALSE),
+(100110,	'1/29/2020',	'23.45',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(15).jpg',	TRUE,	NULL),
+(100111,	'1/31/2020',	'343.35',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(16).jpg',	FALSE,	FALSE),
+(100112,	'2/2/2020',	'17.04',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(17).jpg',	FALSE,	TRUE),
+(100113,	'2/4/2020',	'43.97',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(18).jpg',	TRUE,	NULL),
+(100114,	'2/6/2020',	'58.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(19).jpg',	TRUE,	NULL),
+(100115,	'2/8/2020',	'53.80',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(20).jpg',	TRUE,	NULL),
+(100102,	'2/10/2020',	'21.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(21).jpg',	FALSE,	FALSE),
+(100103,	'2/12/2020',	'93.62',TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(22).jpg',	FALSE,	TRUE),
+(100104,	'2/14/2020',	'229.50',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(23).jpg',	TRUE,	NULL),
+(100105,	'2/16/2020',	'24.20',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(24).jpg',	TRUE,	NULL),
+(100106,	'2/18/2020',	'23.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(25).jpg',	FALSE,	FALSE),
+(100107,	'2/20/2020',	'343.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(26).jpg',	FALSE,	TRUE),
+(100108,	'2/22/2020',	'17.04',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(27).jpg',	FALSE,	TRUE),
+(100109,	'2/24/2020',	'43.97',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(28).jpg',	TRUE,	NULL),
+(100110,	'2/26/2020',	'58.35',	FALSE,'https://jicstorage.s3.amazonaws.com/images/receipt+(29).jpg',	FALSE,	FALSE),
+(100111,	'2/28/2020',	'53.80',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(30).jpg',	FALSE,	TRUE),
+(100112,	'3/1/2020',	'21.45',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(31).jpg',	TRUE,	NULL),
+(100113,	'3/3/2020',	'93.62',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(32).jpg',	FALSE,	FALSE),
+(100114,	'3/5/2020',	'229.50',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(33).jpg',	FALSE,	TRUE),
+(100115,	'3/7/2020',	'24.20',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(34).jpg',	TRUE,	NULL),
+(100102,	'3/9/2020',	'23.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(35).jpg',	FALSE,	FALSE),
+(100103,	'3/11/2020',	'343.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(36).jpg',	FALSE,	FALSE),
+(100104,	'3/13/2020',	'17.04',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(37).jpg',	FALSE,	TRUE),
+(100105,	'3/15/2020',	'43.97',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(38).jpg',	TRUE,	NULL),
+(100106,	'3/17/2020',	'58.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(39).jpg',	FALSE,	FALSE),
+(100107,	'3/19/2020',	'53.80',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(40).jpg',	FALSE,	FALSE),
+(100108,  '3/21/2020',	'21.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(41).jpg',	FALSE,	FALSE),
+(100109,	'3/23/2020',	'93.62',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(42).jpg',	TRUE,	NULL),
+(100110,	'3/25/2020',	'229.50',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(43).jpg',	FALSE,	FALSE),
+(100111,	'3/27/2020', '24.20',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(44).jpg',	TRUE,	NULL),
+(100112,	'3/29/2020',	'23.45',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(45).jpg',	FALSE,	FALSE),
+(100113,	'3/31/2020',	'343.35',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(46).jpg',	FALSE,	TRUE),
+(100114,	'4/2/2020',	'17.04',	FALSE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(47).jpg',	TRUE, NULL),
+(100115,	'4/4/2020',	'43.97',	TRUE,	'https://jicstorage.s3.amazonaws.com/images/receipt+(48).jpg',	TRUE,	NULL)
+;
+
+DROP TABLE employee_info;
